@@ -1,0 +1,29 @@
+button {
+  cursor: pointer;
+  outline: 0;
+}
+
+@mixin button-bg($color, $bg) {
+  height: 32px;
+  font-size: 14px;
+  font-weight: bold;
+  color: $color;
+  background-color: $bg;
+  border: 0;
+  border-radius: 4px;
+  padding: 0 32px;
+  i {
+    vertical-align: middle;
+  }
+}
+
+.primaryBtn {
+  @include button-bg(var(--white),var(--primaryColor));
+}
+.whiteBtn {
+  @include button-bg(var(--primaryColor),var(--white));
+}
+.whiteGrayBtn {
+  @include button-bg(var(--primaryColor),var(var(--whiteGrayBtn)));
+}
+
