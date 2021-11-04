@@ -1,0 +1,77 @@
+<app-wizard-step [title]="title" [btnTxt]="btnTxt" (previousStepClicked)="goToPreviousStep()"
+  (nextStepClicked)="goToNextStep()">
+  <div class="grayBgBox">
+    <p>
+      <span class="bold ">
+        {{reserveObj.hotelName}}
+      </span>
+      ({{hotelSelected.city}})
+    </p>
+    <span class="bold">Giriş Tarihi: </span> {{reserveObj.startDate | date}} -
+    <span class="bold">Çıkış Tarihi: </span> {{reserveObj.endDate | date}} -
+    <span class="bold">Yetişkin: </span> {{reserveObj.adults}} -
+    <span class="bold">Çocuk: </span> {{reserveObj.child}}
+  </div>
+  <form [formGroup]="roomForm" [attr.aria-label]="title">
+    <div class="border-b-gray m-t-24 m-b-24">
+      <span class="bold line-height-2 f-s-18">
+        Oda Tipi Seçimi
+      </span>
+    </div>
+    <div class="cardRow">
+      <ng-container *ngFor="let roomType of hotelSelected.room_type">
+        <input class="input-hidden" formControlName="roomType"
+        (click)="price = roomType.price"
+         type="radio" id="{{roomType.title}}" name="roomType"
+          value="{{roomType.title}}">
+        <label class="card" for="{{roomType.title}}">
+          <div class="cardTit">
+            {{roomType.title}}
+          </div>
+          <div class="cardImg" [ngStyle]="{'background-image': 'url(' + roomType.photo + ')'}"></div>
+          <div class="cardDis">
+            <div class="disFlex flexRow">
+              <div class="dayCount">
+                {{dayCount}} Gün
+              </div>
+              <div class="price">
+                {{roomType.price * dayCount}} TL
+              </div>
+            </div>
+            <div class="personCount">
+              {{reserveObj.adults}} Yetişkin
+            </div>
+          </div>
+        </label>
+      </ng-container>
+    </div>
+    <div class="border-b-gray m-t-24 m-b-24">
+      <span class="bold line-height-2 f-s-18">
+        Manzara Seçimi
+      </span>
+    </div>
+    <div class="cardRow">
+      <ng-container *ngFor="let roomScenic of hotelSelected.room_scenic">
+        <input class="input-hidden" formControlName="roomScenic" type="radio" id="{{roomScenic.title}}"
+          name="roomScenic" value="{{roomScenic.title}}" (click)="priceRate = roomScenic.price_rate">
+        <label class="card" for="{{roomScenic.title}}">
+          <div class="cardTit">
+            {{roomScenic.title}}
+          </div>
+          <div class="cardImg" [ngStyle]="{'background-image': 'url(' + roomScenic.photo + ')'}"></div>
+          <div class="cardDis">
+            <div class="disFlex flexRow">
+              <div class="dayCount">
+                Fiyat Etki Oranı
+              </div>
+              <div class="price">
+                + {{roomScenic.price_rate}}%
+              </div>
+            </div>
+
+          </div>
+        </label>
+      </ng-container>
+    </div>
+  </form>
+</app-wizard-step>
