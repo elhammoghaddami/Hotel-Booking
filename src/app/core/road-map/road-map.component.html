@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="roadMap m-t-32 m-b-16">
+    <nav>
+      <ul>
+        <li>
+          <button routerLink="/step1" [routerLinkActive]="['active']">
+            <span class="stepIcon">
+              <i class="icon fas fa-calendar-alt"></i>
+            </span>
+            Otel ve Tarih Seçimi
+          </button>
+        </li>
+        <li>
+          <button routerLink="/step2" [routerLinkActive]="['active']" disabled="true">
+            <span class="stepIcon">
+              <i class="icon fas fa-bed"></i>
+            </span>
+            Oda Tipi ve Manzara Seçimi
+          </button>
+
+        </li>
+        <li>
+          <button routerLink="/step3" [routerLinkActive]="['active']" disabled="true">
+            <span class="stepIcon">
+              <i class="icon fas fa-credit-card"></i>
+            </span>
+            Önizleme ve Ödeme İşlemleri
+          </button>
+
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
