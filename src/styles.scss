@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./assets/styles/general";
+@import "./assets/styles/variables";
+@import "./assets/styles/input";
+@import "./assets/styles/button";
+@import "./assets/styles/grid";
+
+html, body { height: 100%; }
