@@ -1,0 +1,69 @@
+<div class="disFlex flexCol flexCenter successBox">
+  <i class="icon fas fa-calendar-check "></i>
+
+  <p class="font-22 bold m-t-32">
+    ezervasyon kaydınız alınmıştır.
+  </p>
+  <p class="font-18 font-w-500 description">
+    Rezervasyon
+    özetiniz aşağıdaki gibidir. Rezervasyon kaydınızda değişiklik veya yeni rezervasyon yapmak için
+    aşağıdaki linkleri kullanabilirsiniz.
+  </p>
+</div>
+<div class="reserveBox">
+  <div class="hotelName m-b-16">
+    <span class="bold ">
+      {{reservedHotel.hotelName}}
+    </span>
+    ({{reservedHotel.city}})
+  </div>
+  <div class="reserveInfo">
+    <div class="boxInfo">
+      <span class="bold">Giriş Tarihi</span>
+      {{reservedHotel.start_date | date}}
+    </div>
+    <div class="boxInfo">
+      <span class="bold">Çıkış Tarihi</span>
+      {{reservedHotel.end_date | date}}
+    </div>
+    <div class="boxInfo">
+      <span class="bold">Yetişkin</span>
+      {{reservedHotel.adult}}
+    </div>
+    <div class="boxInfo">
+      <span class="bold">Çocuk</span>
+      {{reservedHotel.child}}
+    </div>
+    <div class="boxInfo">
+      <span class="bold">Oda Tipi</span>
+      {{reservedHotel.room_type}}
+    </div>
+    <div class="boxInfo">
+      <span class="bold">Manzara</span>
+      {{reservedHotel.room_scenic}}
+    </div>
+  </div>
+  <div class="pricesBox m-t-24">
+    <div class="disFlex flexRow m-b-16">
+      <span class="bold">
+        Oda Fiyat
+      </span>
+      {{prices.price}} TL
+    </div>
+    <div class="disFlex flexRow m-b-16">
+      <span class="bold">
+        Fiyat Etki Oranı
+      </span>
+      {{prices.priceRate}}%
+    </div>
+    <div class="disFlex flexRow">
+      <div>
+        <span class="bold">
+          konaklama
+        </span>
+        ({{prices.dayCount}} Gün)
+      </div>
+      {{prices.dayCount * ((prices.price * prices.priceRate/100)+prices.price) }} TL
+    </div>
+  </div>
+</div>

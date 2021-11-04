@@ -1,0 +1,61 @@
+<app-wizard-step [title]="title" [btnTxt]="btnTxt" (nextStepClicked)="goToNextStep()">
+  <div class="content">
+    <form [formGroup]="stepOneForm" [attr.aria-label]="title">
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label> Rezervasyon yapmak istediğiniz oteli seçiniz.</mat-label>
+            <mat-select formControlName="hotelName">
+              <mat-option *ngFor="let item of hotels" (click)="selectHotel(item)" value="{{item.hotel_name}}">
+                {{item.hotel_name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label> Giriş Tarihi </mat-label>
+            <input matInput formControlName="startDate" [matDatepicker]="startDate">
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label> Çıkış Tarihi</mat-label>
+            <input matInput formControlName="endDate" [matDatepicker]="endDate">
+            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label> Yetişkin Sayısı</mat-label>
+            <input matInput formControlName="adults" placeholder="Placeholder" type="number">
+            <mat-hint class="errorMsg" *ngIf="f.adults.errors">
+              <div *ngIf="f.adults.errors.max">
+                The maximum number of adults is
+                {{f.adults.errors.max.max |number}}
+              </div>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label> Çocuk Sayısı</mat-label>
+            <input matInput formControlName="child" placeholder="Placeholder" type="number">
+            <mat-hint class="errorMsg" *ngIf="f.child.errors">
+              <div *ngIf="f.child.errors.max">
+                The maximum number of adults is
+                {{f.child.errors.max.max |number}}
+              </div>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-wizard-step>

@@ -1,0 +1,118 @@
+<app-wizard-step [title]="title" [btnTxt]="btnTxt" (previousStepClicked)="goToPreviousStep()"
+  (nextStepClicked)="goToNextStep()">
+  <div class="content">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <div class="pay">
+          <div class="creditCardImg m-b-16">
+            <img width="100%" height="auto" src="../../assets/img/credit-card.png" alt="">
+            <div class="cardName">
+              {{payForm.value.card_name}}
+            </div>
+            <div class="cardDate">
+              EXP: <span>{{payForm.value.card_date_month}}</span> / <span>{{payForm.value.card_date_year}}</span>
+            </div>
+            <div class="cardNumber">
+              {{payForm.value.card_number | mask: '0000     0000     0000     0000'}}
+            </div>
+
+          </div>
+          <div class="creditCardInfo">
+            <div class="tit">
+              Kart Karti Bilgileri
+            </div>
+            <form [formGroup]="payForm" class="m-t-24">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label> Kartın Üzerindeki İsim</mat-label>
+                <input matInput formControlName="card_name" placeholder="Placeholder">
+              </mat-form-field>
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Kartın Numarası</mat-label>
+                <input matInput formControlName="card_number" mask="0000 0000 0000 0000" placeholder="Placeholder">
+              </mat-form-field>
+              <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                  Karti Son Kullanma Tarihi
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Ayy</mat-label>
+                        <input matInput formControlName="card_date_month" placeholder="Placeholder">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                      <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Yill</mat-label>
+                        <input matInput formControlName="card_date_year" placeholder="Placeholder">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                  CVV
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>CVV Giriniz</mat-label>
+                    <input matInput formControlName="card_cvv" placeholder="Placeholder">
+                  </mat-form-field>
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div class="reserveBox">
+          <div class="hotelName m-b-16">
+            <span class="bold ">
+              {{reserveObj.hotelName}}
+            </span>
+            ({{hotelSelected.city}})
+          </div>
+          <div class="reserveInfo">
+            <div class="boxInfo">
+              <span class="bold">Giriş Tarihi</span>
+              {{reserveObj.startDate | date}}
+            </div>
+            <div class="boxInfo">
+              <span class="bold">Çıkış Tarihi</span>
+              {{reserveObj.endDate | date}}
+            </div>
+            <div class="boxInfo">
+              <span class="bold">Yetişkin</span>
+              {{reserveObj.adults}}
+            </div>
+            <div class="boxInfo">
+              <span class="bold">Çocuk</span>
+              {{reserveObj.child}}
+            </div>
+          </div>
+          <div class="pricesBox m-t-24">
+            <div class="disFlex flexRow m-b-16">
+              <span class="bold">
+                Oda Fiyat
+              </span>
+              {{prices.price}} TL
+            </div>
+            <div class="disFlex flexRow m-b-16">
+              <span class="bold">
+                Fiyat Etki Oranı
+              </span>
+              {{prices.priceRate}}%
+            </div>
+            <div class="disFlex flexRow">
+              <div>
+                <span class="bold">
+                  konaklama
+                </span>
+                ({{prices.dayCount}} Gün)
+              </div>
+              {{prices.dayCount * ((prices.price * prices.priceRate/100)+prices.price) }} TL
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</app-wizard-step>

@@ -1,0 +1,116 @@
+.roadMap {
+  background-color: #f2f2f2;
+  border: 1px solid #eeeeee;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  padding: 16px;
+
+  nav {
+    width: 100%;
+    height: 100%;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+
+      li {
+        list-style-type: none;
+
+        button {
+          border: 0;
+          font-size: 14px;
+          font-weight: bold;
+          color: #a3a3a3;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .stepIcon {
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            background: #ffffff;
+            border: 1px solid #d4d4d4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+
+            .icon {
+              font-size: 24px;
+              color: #939393;
+            }
+
+
+          }
+
+          &:active,
+          &:focus {
+            color: #333333;
+
+            .stepIcon {
+              border: 1px solid #333333;
+
+              .icon {
+                color: #333333;
+              }
+            }
+          }
+
+        }
+
+        .active {
+          color: #333333;
+
+          .stepIcon {
+            border: 1px solid #333333;
+
+            .icon {
+              color: #333333;
+            }
+          }
+        }
+
+      }
+    }
+
+  }
+}
+
+@media (max-width: 768px) {
+  .roadMap {
+    height: auto;
+
+    nav {
+      ul {
+        flex-direction: row;
+        justify-content: space-around;
+
+        li {
+          button {
+            font-size: 12px;
+
+            .stepIcon {
+              width: 40px;
+              height: 40px;
+
+              .icon {
+                font-size: 18px;
+                color: #939393;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
