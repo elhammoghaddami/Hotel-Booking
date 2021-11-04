@@ -1,0 +1,10 @@
+  <ng-content></ng-content>
+  <div class="actionBar">
+    <button [ngClass]="{hidden: title == 'step1'}" id="previous-button" class="primaryBtn" (click)="goToPreviousStep()">
+      <i class="fas fa-chevron-left"></i>
+      Geri
+    </button>
+    <button class="primaryBtn" id="next-button" (click)="goToNextStep()">
+      {{btnTxt}}
+    </button>
+  </div>
