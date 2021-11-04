@@ -1,0 +1,113 @@
+.reserveBox {
+  background-color: #f2f2f2;
+  border: 1px solid #eeeeee;
+  height: 100%;
+  border-radius: 4px;
+  padding: 24px;
+
+  .hotelName {
+    font-size: 20px;
+  }
+
+  .reserveInfo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .boxInfo {
+      width: 48%;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 1%;
+      background-color: #ffffff;
+      border-radius: 5px;
+
+      &:nth-child(even) {
+        margin-right: 0;
+      }
+
+      &:nth-child(odd) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .pricesBox {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 24px;
+
+  }
+}
+
+.pay {
+  border: 1px solid #eeeeee;
+  height: 100%;
+  border-radius: 4px;
+  padding: 24px;
+
+  .creditCardImg {
+    position: relative;
+
+    .cardName {
+      width: 100%;
+      position: absolute;
+      top: 42%;
+      left: 27%;
+      font-size: 23px;
+      font-weight: bold;
+      color: #5b5b5b;
+    }
+
+    .cardDate {
+      width: 100%;
+      position: absolute;
+      top: 53%;
+      left: 27%;
+      font-size: 16px;
+      font-weight: bold;
+      color: #5b5b5b;
+    }
+
+    .cardNumber {
+      width: 100%;
+      position: absolute;
+      top: 73%;
+      left: 27%;
+      letter-spacing: 2px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #5b5b5b;
+    }
+  }
+
+  .creditCardInfo {
+    border: 1px solid #333333;
+    position: relative;
+    padding: 16px;
+
+    .tit {
+      position: absolute;
+      left: 20px;
+      top: -12px;
+      background: #ffffff;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 0 5px;
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .cardName,
+  .cardDate,
+  .cardNumber {
+    font-size: 14px !important;
+  }
+}
